@@ -1,5 +1,7 @@
 'use strict'
 const displayWorkouts = require('../templates/show-all-workouts.handlebars')
+const displayOneWorkout = require('../templates/show-one-workout.handlebars')
+
 
 const logWorkoutSuccess = function () {
   alert('Workout logged successfully')
@@ -21,6 +23,8 @@ const showWorkoutsFail = function () {
 
 const showWorkoutSuccess = function (data) {
   console.log(data)
+  const showOneWorkout = displayOneWorkout(data)
+  $('#jumbotron').html(showOneWorkout)
 }
 
 const showWorkoutFail = function () {
