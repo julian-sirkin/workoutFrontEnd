@@ -1,4 +1,5 @@
 'use strict'
+const store = require('../store.js')
 
 const signUpSuccess = function () {
   alert('A great success')
@@ -9,6 +10,7 @@ const signUpFail = function () {
 }
 
 const logInSuccess = function (data) {
+  store.user = data.user
   console.log(data.user, 'data back from api on login')
 }
 
