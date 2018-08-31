@@ -8,7 +8,18 @@ const logWorkoutFail = function () {
   alert('laid on a couch instead')
 }
 
+const showWorkoutsSuccess = function (data) {
+  console.log(data)
+  alert('Got workouts')
+}
+
+const showWorkoutsFail = function () {
+  alert('did not get workouts')
+}
+
 module.exports = {
   logWorkoutSuccess,
-  logWorkoutFail
+  logWorkoutFail,
+  showWorkoutsSuccess,
+  showWorkoutsFail
 }

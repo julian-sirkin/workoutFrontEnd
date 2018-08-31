@@ -12,8 +12,16 @@ const onLogWorkout = function (event) {
     .catch(ui.logWorkoutFail)
 }
 
+const onShowWorkouts = function (event) {
+  event.preventDefault()
+  api.showWorkouts()
+    .then(ui.showWorkoutsSuccess)
+    .catch(ui.showWorkoutsSuccessß)
+}
+
 const workoutHandlerController = function () {
   $('#log-workout').on('submit', onLogWorkout)
+  $('#show-workouts').on('submit', onShowWorkouts)
 }
 module.exports = {
   workoutHandlerController
