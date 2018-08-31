@@ -12,6 +12,54 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Hello World</h1>
+      <div class="navbar fixed-top">
+        <div class="container">
+        </div>
+      </div>
+      <div class="container">
+        <div class="card" id="login-card">
+          <div class="card-body">
+            <h3 class="card-title">
+              Login
+            </h3>
+              <form>
+                <input type="email" placeholder="email">
+                <input type="password" placeholder="password">
+                <button class="btn" id="login-btn" type="submit">Login</button>
+                <h6 id="create-account">Create Account</h6>
+              </form>
+          </div>
+        </div>
+        <div class="card" id="signup-card">
+          <div class="card-body">
+            <h3 class="card-title">
+              Sign UP
+            </h3>
+            <form>
+              <input type="email" placeholder="email">
+              <input type="password" placeholder="password">
+              <input type="password" placeholder="Confirm Password">
+              <button class="btn" id="create-acct-btn" type="submit">Create Account</button>
+              <h6 id="to-login">Already Have an Account</h6>
+            </form>
+          </div>
+        </div>
+        <div class="card" id="new-workout">
+          <div class="card-body">
+            <h3 class="card-title">
+              Log Workout
+            </h3>
+            <form>
+              <input type="text" name="workout_type" placeholder="Workout Type">
+              <input type="date" name="completed_on" placeholder="Day Complted">
+              <input type="number" name="duration" placeholder="Time in minutes">
+              <button class="btn" id="log-workout" type="submit">Log workout</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <button class="btn" id="show-workouts">Show old workouts</button>
+        </div>
+      </div>
     </body>
 </html>
