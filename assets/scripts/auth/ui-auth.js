@@ -1,0 +1,44 @@
+'use strict'
+
+const signUpSuccess = function () {
+  alert('A great success')
+}
+
+const signUpFail = function () {
+  alert('Failed miserably!')
+}
+
+const logInSuccess = function (data) {
+  console.log(data.user, 'data back from api on login')
+}
+
+const logInFail = function () {
+  alert('BOOOOOOOOO! BOOOOOOOOO!')
+}
+
+const logOutSuccess = function () {
+  alert('logged out successfully')
+}
+
+const logOutFail = function () {
+  alert('failed to run away')
+}
+
+const changePasswordSuccess = function () {
+  alert('changed password successfully')
+}
+
+const changePasswordFail = function () {
+  alert('You have failed to change your password')
+}
+
+module.exports = {
+  signUpSuccess,
+  signUpFail,
+  logInSuccess,
+  logInFail,
+  logOutSuccess,
+  logOutFail,
+  changePasswordSuccess,
+  changePasswordFail
+}

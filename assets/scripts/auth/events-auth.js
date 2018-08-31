@@ -43,7 +43,6 @@ const authHandlerController = function () {
   $('#log-out').on('submit', onLogOut)
   $('#change-password').on('submit', onChangePassword),
   $('#to-create-acount').on('click', onToCreateAccount)
-
 }
 
 module.exports = {

@@ -22,11 +22,13 @@
             <h3 class="card-title">
               Login
             </h3>
-              <form>
-                <input type="email" placeholder="email">
-                <input type="password" placeholder="password">
-                <button class="btn" id="login-btn" type="submit">Login</button>
-                <h6 id="create-account">Create Account</h6>
+              <form class="form" id="login">
+                <fieldset>
+                  <input type="email" name="credentials[email]" placeholder="email">
+                  <input type="password" name="credentials[password]" placeholder="password">
+                  <button class="btn" id="login-btn" type="submit">Login</button>
+                  <h6 id="to-create-account">Create Account</h6>
+                </fieldset>
               </form>
           </div>
         </div>
@@ -36,9 +38,9 @@
               Sign UP
             </h3>
             <form>
-              <input type="email" placeholder="email">
-              <input type="password" placeholder="password">
-              <input type="password" placeholder="Confirm Password">
+              <input type="email" name="credentials[email]" placeholder="email">
+              <input type="password" name="credentials[password]" placeholder="password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
               <button class="btn" id="create-acct-btn" type="submit">Create Account</button>
               <h6 id="to-login">Already Have an Account</h6>
             </form>
@@ -49,11 +51,13 @@
             <h3 class="card-title">
               Log Workout
             </h3>
-            <form>
-              <input type="text" name="workout_type" placeholder="Workout Type">
-              <input type="date" name="completed_on" placeholder="Day Complted">
-              <input type="number" name="duration" placeholder="Time in minutes">
-              <button class="btn" id="log-workout" type="submit">Log workout</button>
+            <form id="log-workout">
+              <fieldset>
+                <input type="text" name="workout_type" placeholder="Workout Type">
+                <input type="date" name="completed_on" placeholder="Day Complted">
+                <input type="number" name="duration" placeholder="Time in minutes">
+                <button class="btn btn-primary" id="log-workout-btn" type="submit">Log workout</button>
+              </fieldset>
             </form>
           </div>
         </div>
