@@ -1,0 +1,23 @@
+{{#each workouts as |workout|}}
+
+<div class="card mb-3" id="signup-card">
+  <div class="card-body">
+    <h3 class="card-title text-center">
+      {{#if workout.completed_on}}
+      Workout From: {{workout.completed_on}}
+      {{else}}
+      Workout
+      {{/if}}
+    </h3>
+    <ul class="list list-unstyled">
+      <li>
+        Workout Type: {{workout.workout_type}}
+      </li>
+      <li>
+        Duration: {{workout.duration}} minutes
+      </li>
+    </ul>
+  </div>
+</div>
+
+{{/each}}
