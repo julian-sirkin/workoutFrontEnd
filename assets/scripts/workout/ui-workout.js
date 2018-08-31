@@ -17,9 +17,19 @@ const showWorkoutsFail = function () {
   alert('did not get workouts')
 }
 
+const showWorkoutSuccess = function (data) {
+  console.log(data)
+}
+
+const showWorkoutFail = function () {
+  alert('ate bahn mi!')
+}
+
 module.exports = {
   logWorkoutSuccess,
   logWorkoutFail,
   showWorkoutsSuccess,
-  showWorkoutsFail
+  showWorkoutsFail,
+  showWorkoutSuccess,
+  showWorkoutFail
 }

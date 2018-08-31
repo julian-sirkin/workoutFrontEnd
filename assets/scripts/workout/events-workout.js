@@ -19,9 +19,18 @@ const onShowWorkouts = function (event) {
     .catch(ui.showWorkoutsSuccessß)
 }
 
+const onShowWorkout = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target).workout
+  api.showWorkout(data)
+    .then(ui.showWorkoutSuccess)
+    .catch(ui.showWorkoutSuccess)
+}
+
 const workoutHandlerController = function () {
   $('#log-workout').on('submit', onLogWorkout)
   $('#show-workouts').on('submit', onShowWorkouts)
+  $('#show-workout').on('submit', onShowWorkout)
 }
 module.exports = {
   workoutHandlerController

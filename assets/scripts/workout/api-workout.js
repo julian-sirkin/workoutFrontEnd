@@ -24,7 +24,19 @@ const showWorkouts = function () {
   })
 }
 
+const showWorkout = function (data) {
+  console.log(data, 'number getting passed to url')
+  return $.ajax({
+    url: config.apiUrl + `/workouts/${data}`,
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   newWorkout,
-  showWorkouts
+  showWorkouts,
+  showWorkout
 }
