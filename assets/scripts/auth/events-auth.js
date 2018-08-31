@@ -14,7 +14,6 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('I am working')
   const data = getFormFields(event.target)
   api.logIn(data)
     .then(ui.logInSuccess)
@@ -33,11 +32,18 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
 }
+
+const onToCreateAccount = function (event) {
+  console.log('I have been clicked')
+}
+
 const authHandlerController = function () {
   $('#signup-card').on('submit', onSignUp)
-  $('#login-card').on('submit', onSignIn)
+  $('#login').on('submit', onSignIn)
   $('#log-out').on('submit', onLogOut)
-  $('#change-password').on('submit', onChangePassword)
+  $('#change-password').on('submit', onChangePassword),
+  $('#to-create-acount').on('click', onToCreateAccount)
+
 }
 
 module.exports = {
