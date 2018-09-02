@@ -12,6 +12,8 @@ const signUpFail = function () {
 const logInSuccess = function (data) {
   store.user = data.user
   console.log(data.user, 'data back from api on login')
+  $('#login input').val('')
+  $('#login-card').hide()
 }
 
 const logInFail = function () {
