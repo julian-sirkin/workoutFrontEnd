@@ -1,10 +1,11 @@
 'use strict'
 const displayWorkouts = require('../templates/show-all-workouts.handlebars')
 const displayOneWorkout = require('../templates/show-one-workout.handlebars')
-
+const authUI = require('../auth/ui-auth.js')
 
 const logWorkoutSuccess = function () {
   alert('Workout logged successfully')
+  $('#new-workout').hide()
 }
 
 const logWorkoutFail = function () {
@@ -12,6 +13,7 @@ const logWorkoutFail = function () {
 }
 
 const showWorkoutsSuccess = function (data) {
+  authUI.homeDisplay()
   console.log(data)
   const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
   $('#jumbotron').html(showWorkoutsHtml)
@@ -23,7 +25,6 @@ const showWorkoutsFail = function () {
 }
 
 const showWorkoutSuccess = function (data) {
-  console.log(data)
   const showOneWorkout = displayOneWorkout(data)
   $('#jumbotron').html(showOneWorkout)
   $('#jumbotron').show()
@@ -34,10 +35,12 @@ const showWorkoutFail = function () {
 }
 
 const newWorkout = function () {
+  authUI.homeDisplay()
   $('#new-workout').show()
 }
 
 const pickWorkout = function () {
+  authUI.homeDisplay()
   $('#see-one-workout').show()
 }
 
