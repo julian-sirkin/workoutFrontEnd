@@ -33,16 +33,32 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFail)
 }
 
-const onToCreateAccount = function (event) {
+const onToCreateAccount = function () {
+  ui.onToCreateAccount()
+}
+
+const onToLogin = function () {
+  ui.onToLogin()
+}
+const onShowChangePasswordForm = function () {
   console.log('I have been clicked')
+  ui.showChangePasswordForm()
+}
+
+const onKeepOldPassword = function () {
+  console.log('time to run away')
+  ui.hideChangePasswordForm()
 }
 
 const authHandlerController = function () {
   $('#signup-card').on('submit', onSignUp)
   $('#login').on('submit', onSignIn)
-  $('#log-out').on('submit', onLogOut)
-  $('#change-password').on('submit', onChangePassword),
-  $('#to-create-acount').on('click', onToCreateAccount)
+  $('#log-out').on('click', onLogOut)
+  $('#change-password').on('click', onChangePassword),
+  $('#to-create-account').on('click', onToCreateAccount),
+  $('#to-login').on('click', onToLogin),
+  $('#show-change-password').on('click', onShowChangePasswordForm),
+  $('#keep-old-password').on('click', onKeepOldPassword)
 }
 
 module.exports = {

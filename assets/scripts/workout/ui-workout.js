@@ -15,6 +15,7 @@ const showWorkoutsSuccess = function (data) {
   console.log(data)
   const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
   $('#jumbotron').html(showWorkoutsHtml)
+  $('#jumbotron').show()
 }
 
 const showWorkoutsFail = function () {
@@ -25,10 +26,19 @@ const showWorkoutSuccess = function (data) {
   console.log(data)
   const showOneWorkout = displayOneWorkout(data)
   $('#jumbotron').html(showOneWorkout)
+  $('#jumbotron').show()
 }
 
 const showWorkoutFail = function () {
   alert('ate bahn mi!')
+}
+
+const newWorkout = function () {
+  $('#new-workout').show()
+}
+
+const pickWorkout = function () {
+  $('#see-one-workout').show()
 }
 
 module.exports = {
@@ -37,5 +47,7 @@ module.exports = {
   showWorkoutsSuccess,
   showWorkoutsFail,
   showWorkoutSuccess,
-  showWorkoutFail
+  showWorkoutFail,
+  newWorkout,
+  pickWorkout
 }

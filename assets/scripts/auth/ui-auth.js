@@ -14,6 +14,7 @@ const logInSuccess = function (data) {
   console.log(data.user, 'data back from api on login')
   $('#login input').val('')
   $('#login-card').hide()
+  $('#new-Workout, #logout-btn, #change-password-btn, #workout-options').show()
 }
 
 const logInFail = function () {
@@ -21,7 +22,8 @@ const logInFail = function () {
 }
 
 const logOutSuccess = function () {
-  alert('logged out successfully')
+  $('#login-card').show()
+  $('#jumbotron, new-workout, #logout-btn, #change-password-btn, #workout-options, change-password-card').hide()
 }
 
 const logOutFail = function () {
@@ -29,6 +31,7 @@ const logOutFail = function () {
 }
 
 const changePasswordSuccess = function () {
+  $('#change-password-card').hide()
   alert('changed password successfully')
 }
 
@@ -36,6 +39,23 @@ const changePasswordFail = function () {
   alert('You have failed to change your password')
 }
 
+const onToCreateAccount = function () {
+  $('#login-card').hide()
+  $('#signup-card').show()
+}
+
+const onToLogin = function () {
+  $('#signup-card').hide()
+  $('#login-card').show()
+}
+
+const showChangePasswordForm = function () {
+  $('#change-password-card').show()
+}
+
+const hideChangePasswordForm = function () {
+  $('#change-password-card').hide()
+}
 module.exports = {
   signUpSuccess,
   signUpFail,
@@ -44,5 +64,9 @@ module.exports = {
   logOutSuccess,
   logOutFail,
   changePasswordSuccess,
-  changePasswordFail
+  changePasswordFail,
+  onToCreateAccount,
+  onToLogin,
+  showChangePasswordForm,
+  hideChangePasswordForm
 }

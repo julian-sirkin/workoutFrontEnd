@@ -13,7 +13,6 @@ const onLogWorkout = function (event) {
 }
 
 const onShowWorkouts = function (event) {
-  event.preventDefault()
   api.showWorkouts()
     .then(ui.showWorkoutsSuccess)
     .catch(ui.showWorkoutsSuccessß)
@@ -27,10 +26,20 @@ const onShowWorkout = function (event) {
     .catch(ui.showWorkoutSuccess)
 }
 
+const onNewWorkout = function () {
+  ui.newWorkout()
+}
+
+const onPickWorkout = function () {
+  ui.pickWorkout()
+}
+
 const workoutHandlerController = function () {
   $('#log-workout').on('submit', onLogWorkout)
-  $('#show-workouts').on('submit', onShowWorkouts)
+  $('#show-workouts').on('click', onShowWorkouts)
   $('#show-workout').on('submit', onShowWorkout)
+  $('#add-workout').on('click', onNewWorkout)
+  $('#pick-workout').on('click', onPickWorkout)
 }
 module.exports = {
   workoutHandlerController
