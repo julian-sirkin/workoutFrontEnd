@@ -78,7 +78,7 @@ const hideChangePasswordForm = function () {
   $('#change-password-card').hide()
 }
 module.exports = {
-  signUpSuccess,
+  // signUpSuccess,
   signUpFail,
   logInSuccess,
   logInFail,
