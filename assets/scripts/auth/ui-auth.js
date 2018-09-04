@@ -9,7 +9,7 @@ const initialDisplay = function () {
 // View on first login
 const homeDisplay = function () {
   initialDisplay()
-  $('#login-card').hide()
+  $('#login-card, #jumbotron').hide()
   $('#new-Workout, #workout-options, #acct-options').show()
 }
 /*
@@ -20,7 +20,8 @@ const signUpSuccess = function (data) {
 }*/
 
 const signUpFail = function () {
-  alert('Failed miserably!')
+  $('#jumbotron').html('<h4 class="text-center">Please try to sign up again</h4>')
+  $('#jumbotron').show()
 }
 
 const logInSuccess = function (data) {
@@ -29,10 +30,11 @@ const logInSuccess = function (data) {
   $('#login input, #signup-card input').val('')
   $('#login-card, #signup-card').hide()
   $('#new-Workout, #workout-options, #acct-options').show()
+  $('#jumbotron').empty()
 }
 
 const logInFail = function () {
-  alert('BOOOOOOOOO! BOOOOOOOOO!')
+$('#jumbotron').html('<h4 class="text-center">Please try to log in again</h4>')
 }
 
 const logOutSuccess = function () {
@@ -50,23 +52,29 @@ const logOutFail = function () {
 const changePasswordSuccess = function () {
   homeDisplay()
   $('#change-password-card').hide()
-  alert('changed password successfully')
+  $('#change-password input').val('')
+  $('#jumbotron').html('<h4>Password Changed</h4>').show()
+
 }
 
 const changePasswordFail = function () {
-  alert('You have failed to change your password')
+$('#jumbotron').html('<h4>Please try to change your password again</h4>').show()
+$('#change-password input').val('')
 }
 
 const onToCreateAccount = function () {
   $('#login input').val('')
-  $('#login-card').hide()
+  $('#login-card, #jumbotron').hide()
   $('#signup-card').show()
+  $('#jumbotron').empty()
 }
 
 const onToLogin = function () {
   $('#signup-card input').val('')
-  $('#signup-card').hide()
+  $('#signup-card, #jumbotron').hide()
   $('#login-card').show()
+  $('#jumbotron').empty()
+
 }
 
 const showChangePasswordForm = function () {

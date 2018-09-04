@@ -14,7 +14,7 @@ const logWorkoutFail = function () {
 
 const showWorkoutsSuccess = function (data) {
   authUI.homeDisplay()
-  console.log(data)
+  console.log('workout information returning from API', data)
   const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
   $('#jumbotron').html(showWorkoutsHtml)
   $('#jumbotron').show()
@@ -28,6 +28,7 @@ const showWorkoutSuccess = function (data) {
   const showOneWorkout = displayOneWorkout(data)
   $('#jumbotron').html(showOneWorkout)
   $('#jumbotron').show()
+  $('#show-workout input').val('')
 }
 
 const showWorkoutFail = function () {
@@ -44,6 +45,14 @@ const pickWorkout = function () {
   $('#see-one-workout').show()
 }
 
+const newExerciseSuccess = function () {
+  alert('New exercise has been logged')
+}
+
+const newExerciseFail = function () {
+  alert('Failed to remember')
+}
+
 module.exports = {
   logWorkoutSuccess,
   logWorkoutFail,
@@ -52,5 +61,7 @@ module.exports = {
   showWorkoutSuccess,
   showWorkoutFail,
   newWorkout,
-  pickWorkout
+  pickWorkout,
+  newExerciseSuccess,
+  newExerciseFail
 }

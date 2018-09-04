@@ -34,12 +34,22 @@ const onPickWorkout = function () {
   ui.pickWorkout()
 }
 
+const onCreateExercise = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.exercise.user_id = store.user.id
+  api.newExercise(data)
+    .then(ui.newExerciseSuccess)
+    .catch(ui.newExerciseFail)
+}
+
 const workoutHandlerController = function () {
   $('#log-workout').on('submit', onLogWorkout)
   $('#show-workouts').on('click', onShowWorkouts)
   $('#show-workout').on('submit', onShowWorkout)
   $('#add-workout').on('click', onNewWorkout)
   $('#pick-workout').on('click', onPickWorkout)
+  $('#create-exercise').on('submit', onCreateExercise)
 }
 module.exports = {
   workoutHandlerController

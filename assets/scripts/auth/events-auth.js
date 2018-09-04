@@ -37,7 +37,9 @@ const onLogOut = function (event) {
 }
 const onChangePassword = function (event) {
   event.preventDefault()
+  console.log('Changing the password')
   const data = getFormFields(event.target)
+  console.log('Change Password information', data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
@@ -61,10 +63,10 @@ const onKeepOldPassword = function () {
 }
 
 const authHandlerController = function () {
-  $('#signup-card').on('submit', onSignUp)
-  $('#login').on('submit', onSignIn)
-  $('#log-out').on('click', onLogOut)
-  $('#change-password').on('click', onChangePassword),
+  $('#signup-card').on('submit', onSignUp),
+  $('#login').on('submit', onSignIn),
+  $('#log-out').on('click', onLogOut),
+  $('#change-password').on('submit', onChangePassword),
   $('#to-create-account').on('click', onToCreateAccount),
   $('#to-login').on('click', onToLogin),
   $('#show-change-password').on('click', onShowChangePasswordForm),

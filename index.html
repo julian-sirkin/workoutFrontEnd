@@ -64,10 +64,10 @@
               <h3 class="card-title">
                 Change Password
               </h3>
-              <form>
-                <input type="password" name="credentials[password]" placeholder="Old password">
-                <input type="password" name="credentials[password]" placeholder="New Password">
-                <button class="btn btn-success" id="change-password-btn" type="submit">Create Account</button>
+              <form id="change-password">
+                <input type="password" name="passwords[old]" placeholder="Old password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <button class="btn btn-success"  type="submit">Change Password</button>
                 <a href="#" id="keep-old-password">Keep Old Password </a>
               </form>
             </div>
@@ -87,6 +87,22 @@
                 </form>
               </div>
             </div>
+            <div class="card col-md-4 offset-md-4" id="new-execise">
+              <div class="card-body">
+                  <h3 class="card-title">
+                    New Exercise
+                  </h3>
+                  <form id="create-exercise">
+                    <fieldset>
+                      <input type="text" class="d-block" name="exercise[name]" placeholder="Name">
+                      <input type="text" class="d-block" name="exercise[exercise_type" placeholder="Exercise Type">
+                      <input type="number" class="d-block" name="exercise[duration]" placeholder="Time in minutes">
+                      <input type="text" class="d-block" name="exercise[description]" placeholder="Exercise Description">
+                      <button class="btn btn-primary d-block" id="create-exercise-btn" type="submit">Create Exercise</button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
             <div class="card col-md-4 offset-md-4" id="see-one-workout">
               <div class="card-body">
                 <div class="card-body">
