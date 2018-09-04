@@ -53,6 +53,16 @@ const newExerciseFail = function () {
   alert('Failed to remember')
 }
 
+const showExercisesSuccess = function (data) {
+  alert('got all the existing exercises')
+  console.log(data)
+}
+
+const showExercisesFail = function () {
+  alert('Failed to grab exercises')
+}
+
+
 module.exports = {
   logWorkoutSuccess,
   logWorkoutFail,
@@ -63,5 +73,7 @@ module.exports = {
   newWorkout,
   pickWorkout,
   newExerciseSuccess,
-  newExerciseFail
+  newExerciseFail,
+  showExercisesSuccess,
+  showExercisesFail
 }

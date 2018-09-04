@@ -38,19 +38,26 @@ const showWorkout = function (data) {
 const newExercise = function (data) {
   console.log(data, 'New Exercise data being passed')
   return $.ajax({
-      url: config.apiUrl + '/exercises',
-      method: 'POST',
-      headers: {
-        'Authorization': 'Token token=' + store.user.token
-      },
-      data
-    })
-  }
+    url: config.apiUrl + '/exercises',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
+const showExercises = function () {
+  return $.ajax({
+    url: config.apiUrl + '/exercises',
+    method: 'GET'
+  })
+}
 
 module.exports = {
   newWorkout,
   showWorkouts,
   showWorkout,
-  newExercise
+  newExercise,
+  showExercises
 }

@@ -43,6 +43,12 @@ const onCreateExercise = function (event) {
     .catch(ui.newExerciseFail)
 }
 
+const onShowExercises = function () {
+  api.showExercises()
+  .then(ui.showExercisesSuccess)
+  .catch(ui.showExercisesFail)
+}
+
 const workoutHandlerController = function () {
   $('#log-workout').on('submit', onLogWorkout)
   $('#show-workouts').on('click', onShowWorkouts)
@@ -50,6 +56,7 @@ const workoutHandlerController = function () {
   $('#add-workout').on('click', onNewWorkout)
   $('#pick-workout').on('click', onPickWorkout)
   $('#create-exercise').on('submit', onCreateExercise)
+  $('#show-exercises').on('click', onShowExercises)
 }
 module.exports = {
   workoutHandlerController
