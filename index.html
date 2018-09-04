@@ -12,94 +12,99 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+        <div class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+         <div class="container">
+            <a href="#" class="navbar-brand"></a>
+            <ul class="navbar-nav" id="workout-options">
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="add-workout">Add Workout</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="show-workouts"> old Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="pick-workout">One Workout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       <div class="container">
-      <div class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
-       <div class="container">
-          <a href="#" class="navbar-brand"></a>
-          <ul class="navbar-nav" id="workout-options">
-            <li class="nav-item">
-              <a href="#" class="nav-link" id="add-workout">Add Workout</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" id="show-workouts"> old Workouts</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" id="pick-workout">One Workout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-        <div class="card text-center card-width" id="login-card">
-          <div class="card-body">
-            <h3 class="card-title">
-              Login
-            </h3>
-              <form class="form" id="login">
-                <fieldset>
-                  <input class="d-block" type="email" name="credentials[email]" placeholder="email">
-                  <input class="d-block" type="password" name="credentials[password]" placeholder="password">
-                  <button class="btn btn-primary d-block" id="login-btn" type="submit">Login</button>
-                  <a href="#" id="to-create-account" class="d-block">Create Account</a>
-                </fieldset>
-              </form>
-          </div>
-        </div>
-        <div class="card text-center card-width" id="signup-card">
-          <div class="card-body">
-            <h3 class="card-title">
-              Sign UP
-            </h3>
-            <form>
-              <input type="email" name="credentials[email]" placeholder="email">
-              <input type="password" name="credentials[password]" placeholder="password">
-              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-              <button class="btn btn-success" id="create-acct-btn" type="submit">Create Account</button>
-              <a href="#" class="d-block" id="to-login">Already Have an Account </a>
-            </form>
-          </div>
-        </div>
-        <div class="card text-center card-width" id="change-password-card">
-          <div class="card-body">
-            <h3 class="card-title">
-              Change Password
-            </h3>
-            <form>
-              <input type="password" name="credentials[password]" placeholder="Old password">
-              <input type="password" name="credentials[password]" placeholder="New Password">
-              <button class="btn btn-success" id="change-password-btn" type="submit">Create Account</button>
-              <a href="#" id="keep-old-password">Keep Old Password </a>
-            </form>
-          </div>
-        </div>
-        <div class="card text-center card-width" id="new-workout">
-          <div class="card-body">
-              <h3 class="card-title">
-                Log Workout
+        <div class="row align-items-center">
+          <div class="card col col-md-4 offset-md-4" id="login-card">
+            <div class="card-body">
+              <h3 class="card-title text-center">
+                Login
               </h3>
-              <form id="log-workout">
-                <fieldset>
-                  <input type="text" name="workout[workout_type]" placeholder="Workout Type">
-                  <input type="date" name="workout[completed_on]" placeholder="Day Complted">
-                  <input type="number" name="workout[duration]" placeholder="Time in minutes">
-                  <button class="btn btn-primary" id="log-workout-btn" type="submit">Log workout</button>
-                </fieldset>
+                <form class="form" id="login">
+                  <fieldset>
+                    <input class="d-block text-center" type="email" name="credentials[email]" placeholder="email">
+                    <input class="d-block text-center" type="password" name="credentials[password]" placeholder="password">
+                    <button class="btn btn-primary d-block text-center" id="login-btn" type="submit">Login</button>
+                    <a href="#" id="to-create-account text-center" class="d-block">Create Account</a>
+                  </fieldset>
+                </form>
+            </div>
+          </div>
+          <div class="card col-md-4 offset-md-4" id="signup-card">
+            <div class="card-body">
+              <h3 class="card-title">
+                Sign UP
+              </h3>
+              <form>
+                <input type="email" name="credentials[email]" placeholder="email">
+                <input type="password" name="credentials[password]" placeholder="password">
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <button class="btn btn-success" id="create-acct-btn" type="submit">Create Account</button>
+                <a href="#" class="d-block" id="to-login">Already Have an Account </a>
               </form>
             </div>
           </div>
-          <div class="card text-center card-width" id="see-one-workout">
+          <div class="card col-md-4 offset-md-4" id="change-password-card">
             <div class="card-body">
-              <div class="card-body">
+              <h3 class="card-title">
+                Change Password
+              </h3>
+              <form>
+                <input type="password" name="credentials[password]" placeholder="Old password">
+                <input type="password" name="credentials[password]" placeholder="New Password">
+                <button class="btn btn-success" id="change-password-btn" type="submit">Create Account</button>
+                <a href="#" id="keep-old-password">Keep Old Password </a>
+              </form>
+            </div>
+          </div>
+          <div class="card col-md-4 offset-md-4" id="new-workout">
+            <div class="card-body">
                 <h3 class="card-title">
-                  See a workout
+                  Log Workout
                 </h3>
-                <form id="show-workout" class="text-center">
-                  <input type="number" name="workout" placeholder="workout">
-                  <button class="btn btn-danger" type="submit">See Details</button>
+                <form id="log-workout">
+                  <fieldset>
+                    <input type="text" name="workout[workout_type]" placeholder="Workout Type">
+                    <input type="date" name="workout[completed_on]" placeholder="Day Complted">
+                    <input type="number" name="workout[duration]" placeholder="Time in minutes">
+                    <button class="btn btn-primary" id="log-workout-btn" type="submit">Log workout</button>
+                  </fieldset>
                 </form>
               </div>
             </div>
+            <div class="card col-md-4 offset-md-4" id="see-one-workout">
+              <div class="card-body">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    See a workout
+                  </h3>
+                  <form id="show-workout" class="text-center">
+                    <input type="number" name="workout" placeholder="workout">
+                    <button class="btn btn-danger" type="submit">See Details</button>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-        <div class="jumbotron my-3" id="jumbotron">
+        </div>
+        <div class="container">
+          <div class="jumbotron my-3 row" id="jumbotron">
+          </div>
         </div>
         <div class="navbar navbar-expand fixed-bottom">
          <div class="container">

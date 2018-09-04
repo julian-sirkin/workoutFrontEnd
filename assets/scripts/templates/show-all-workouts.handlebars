@@ -1,12 +1,12 @@
 {{#each workouts as |workout|}}
 
-<div class="card mb-3" id="signup-card">
+<div class="card mb-3 col-8 col-sm-6 col-md-4 offset-2 offset-sm-0" id="signup-card">
   <div class="card-body">
-    <h3 class="card-title text-center">
+    <h3 class="card-title text-center ">
       {{#if workout.completed_on}}
       Workout From: {{workout.completed_on}}
       {{else}}
-      Workout
+      Workout Details:
       {{/if}}
     </h3>
     <ul class="list list-unstyled">
