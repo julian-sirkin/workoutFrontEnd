@@ -2,16 +2,26 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api-auth.js')
 const ui = require('./ui-auth.js')
+const store = require('../store.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('signup is responding')
   const data = getFormFields(event.target)
+  store.credentials = data
   api.signUp(data)
-    .then(ui.signUpSuccess)
+    .then(signInAfterSignUp)
     .catch(ui.signUpFail)
 }
 
+const signInAfterSignUp = function () {
+  delete store.credentials.password_confirmation
+  const credentials = store.credentials
+  console.log(credentials, 'what is passing into login')
+  api.logIn(credentials)
+    .then(ui.logInSuccess)
+    .catch(ui.logInFail)
+}
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -62,5 +72,6 @@ const authHandlerController = function () {
 }
 
 module.exports = {
-  authHandlerController
+  authHandlerController,
+  signInAfterSignUp
 }

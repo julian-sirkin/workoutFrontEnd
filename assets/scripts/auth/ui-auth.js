@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const event = require('./events-auth.js')
 
 // What it should look like on load, and when logged out
 const initialDisplay = function () {
@@ -11,11 +12,12 @@ const homeDisplay = function () {
   $('#login-card').hide()
   $('#new-Workout, #workout-options, #acct-options').show()
 }
-
-const signUpSuccess = function () {
+/*
+const signUpSuccess = function (data) {
+  event.signInAfterSignUp()
   $('#signup-card input').val('')
   alert('A great success')
-}
+}*/
 
 const signUpFail = function () {
   alert('Failed miserably!')
@@ -24,8 +26,8 @@ const signUpFail = function () {
 const logInSuccess = function (data) {
   store.user = data.user
   console.log(data.user, 'data back from api on login')
-  $('#login input').val('')
-  $('#login-card').hide()
+  $('#login input, #signup-card input').val('')
+  $('#login-card, #signup-card').hide()
   $('#new-Workout, #workout-options, #acct-options').show()
 }
 

@@ -7,14 +7,20 @@
 // require('./example')
 const authEvents = require('./auth/events-auth.js')
 const workoutEvents = require('./workout/events-workout.js')
-const authUI = require('./auth/ui-auth.js')
 
+const initialDisplay = function () {
+  $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout').hide()
+}
 
 // Initial display
-$(document).ready(authUI.initialDisplay)
+$(document).ready(initialDisplay)
 
 // Route to event handlers
 $(() => {
   authEvents.authHandlerController()
   workoutEvents.workoutHandlerController()
 })
+
+module.exports = {
+  initialDisplay
+}
