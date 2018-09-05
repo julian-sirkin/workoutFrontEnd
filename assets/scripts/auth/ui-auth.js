@@ -28,7 +28,6 @@ const signUpFail = function () {
 
 const logInSuccess = function (data) {
   store.user = data.user
-  console.log(data.user, 'data back from api on login')
   $('#login input, #signup-card input').val('')
   //$('#login-card, #signup-card').hide()
   homeDisplay()
@@ -46,11 +45,11 @@ const logOutSuccess = function () {
   $('#login-card').show()
   // $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout').hide()
   // $('#jumbotron, new-workout, #logout-btn, #change-password-btn, #workout-options, #change-password-card').hide()
-  alert('ran away like the french')
 }
 
 const logOutFail = function () {
-  alert('failed to run away')
+  $('#jumbotron').html('<h4> Unable to log out</h4>')
+  $('#jumbotron').show()
 }
 
 const changePasswordSuccess = function () {
