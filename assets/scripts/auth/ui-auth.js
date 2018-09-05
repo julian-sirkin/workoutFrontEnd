@@ -4,14 +4,16 @@ const event = require('./events-auth.js')
 
 // What it should look like on load, and when logged out
 const initialDisplay = function () {
-  $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout').hide()
+  $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout, #new-exercise').hide()
 }
 // View on first login
 const homeDisplay = function () {
   initialDisplay()
+  $('#jumbotron').empty()
   $('#login-card, #jumbotron').hide()
   $('#new-Workout, #workout-options, #acct-options').show()
 }
+
 /*
 const signUpSuccess = function (data) {
   event.signInAfterSignUp()
@@ -28,13 +30,15 @@ const logInSuccess = function (data) {
   store.user = data.user
   console.log(data.user, 'data back from api on login')
   $('#login input, #signup-card input').val('')
-  $('#login-card, #signup-card').hide()
-  $('#new-Workout, #workout-options, #acct-options').show()
+  //$('#login-card, #signup-card').hide()
+  homeDisplay()
+  //$('#new-Workout, #workout-options, #acct-options').show()
   $('#jumbotron').empty()
 }
 
 const logInFail = function () {
-$('#jumbotron').html('<h4 class="text-center">Please try to log in again</h4>')
+  $('#jumbotron').html('<h4 class="text-center">Please try to log in again</h4>')
+  $('#jumbotron').show()
 }
 
 const logOutSuccess = function () {

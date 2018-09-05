@@ -7,9 +7,10 @@
 // require('./example')
 const authEvents = require('./auth/events-auth.js')
 const workoutEvents = require('./workout/events-workout.js')
+const exerciseEvents = require('./exercise/events-exercise.js')
 
 const initialDisplay = function () {
-  $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout').hide()
+  $('#jumbotron, #new-workout, #signup-card, #acct-options, #workout-options, #change-password-card, #see-one-workout, #new-exercise').hide()
 }
 
 // Initial display
@@ -19,6 +20,7 @@ $(document).ready(initialDisplay)
 $(() => {
   authEvents.authHandlerController()
   workoutEvents.workoutHandlerController()
+  exerciseEvents.exerciseHandlerController()
 })
 
 module.exports = {

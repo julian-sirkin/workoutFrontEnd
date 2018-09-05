@@ -41,7 +41,7 @@ const newExercise = function (data) {
     url: config.apiUrl + '/exercises',
     method: 'POST',
     headers: {
-     'Authorization': 'Token token=' + store.user.token
+        'Authorization': 'Token token=' + store.user.token
 },
     data
   })

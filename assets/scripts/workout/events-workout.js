@@ -37,7 +37,7 @@ const onShowWorkout = function (event) {
   const data = getFormFields(event.target).workout
   api.showWorkout(data)
     .then(ui.showWorkoutSuccess)
-    .catch(ui.showWorkoutSuccess)
+    .catch(ui.showWorkoutFail)
 }
 
 const onNewWorkout = function () {

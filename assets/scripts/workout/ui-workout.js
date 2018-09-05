@@ -2,18 +2,20 @@
 const displayWorkouts = require('../templates/show-all-workouts.handlebars')
 const displayOneWorkout = require('../templates/show-one-workout.handlebars')
 const displayExercises = require('../templates/all-exercises-in-dropdown.handlebars')
+const showNewExercise = require('../templates/show-new-exercise.handlebars')
 const authUI = require('../auth/ui-auth.js')
 const store = require('../store.js')
 
 const logWorkoutSuccess = function (data) {
   store.workout_id = data.workout.id
-  console.log('Data returned from creating workout', data.workout.id)
-  alert('Workout logged successfully')
+  // console.log('Data returned from creating workout', data.workout.id)
+   // alert('Workout logged successfully')
   // $('#new-workout').hide()
 }
 
 const logWorkoutFail = function () {
-  alert('laid on a couch instead')
+  $('#jumbotron').html('<h4>Cannot log out</h4>')
+  $('#jumbotron').show()
 }
 
 const showWorkoutsSuccess = function (data) {
@@ -24,7 +26,8 @@ const showWorkoutsSuccess = function (data) {
 }
 
 const showWorkoutsFail = function () {
-  alert('did not get workouts')
+  $('#jumbotron').html('<h4> Cannot display workouts at this time</h4>')
+  $('#jumbotron').show()
 }
 
 const showWorkoutSuccess = function (data) {
@@ -35,7 +38,8 @@ const showWorkoutSuccess = function (data) {
 }
 
 const showWorkoutFail = function () {
-  alert('ate bahn mi!')
+  $('#jumbotron').html('<h4>Unable to show workout </h4>')
+  $('#jumotron').show()
 }
 
 const newWorkout = function () {
@@ -48,40 +52,49 @@ const pickWorkout = function () {
   $('#see-one-workout').show()
 }
 
-const newExerciseSuccess = function () {
-  alert('New exercise has been logged')
+const newExerciseSuccess = function (data) {
+  authUI.homeDisplay()
+  const displayNewExercise = showNewExercise(data)
+  $('#jumbotron').html(displayNewExercise)
+  $('#jumbotron').show()
 }
 
 const newExerciseFail = function () {
-  alert('Failed to remember')
+  authUI.homeDisplay()
+  $('#jumotron').html('<h4> Unable to create exercise')
+  $('#jumbotron').show()
 }
 
 const showExercisesSuccess = function (data) {
   console.log('data on exercises', data.exercises)
-  //store.exercises = data.exercises
+  // store.exercises = data.exercises
   const showExercisesHtml = displayExercises({exercises: data.exercises})
   $('#jumbotron').html(showExercisesHtml)
   $('#jumbotron').show()
 }
 
 const showExercisesFail = function () {
-  alert('Failed to grab exercises')
+  $('#jumbotron').html('<h4> Unable to show exercises</h4>')
+  $('#jumbotron').show()
 }
 
 const selectExerciseSuccess = function (data) {
-  console.log(data, 'information returned from api')
-  alert('linked exercise to workout')
+  $('#jumbotron').html('<h4> Exercise added to workout</h4>')
+  $('#jumbotron').show()
 }
 
 const selectExerciseFail = function () {
-  alert('did not link the two....booo')
+  $('#jumbotron').html('<h4> Unable to add exercise to workout</h4>')
+  $('#jumbotron').show()
 }
 const filloutWorkoutSuccess = function () {
-  alert('I have been updated')
+  $('#jumbotron').html('<h4>Workout logged</h4>')
+  $('#jumbotron').show()
 }
 
 const filloutWorkoutFail = function () {
-  alert('failed to fill out the deets')
+  $('#jumbotron').html('<h4>Did not fill out workout information</h4>')
+  $('#jumbotron').show()
 }
 
 module.exports = {
