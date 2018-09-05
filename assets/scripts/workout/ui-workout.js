@@ -77,7 +77,7 @@ const showExercisesFail = function () {
   $('#jumbotron').html('<h4> Unable to show exercises</h4>')
   $('#jumbotron').show()
 }
-
+// Message after creaeting new connection between workout and exercise
 const selectExerciseSuccess = function (data) {
   $('#jumbotron').html('<h4> Exercise added to workout</h4>')
   $('#jumbotron').show()
@@ -88,11 +88,14 @@ const selectExerciseFail = function () {
   $('#jumbotron').show()
 }
 const filloutWorkoutSuccess = function () {
+  authUI.homeDisplay()
+  $('#update-workout input').val('')
   $('#jumbotron').html('<h4>Workout logged</h4>')
   $('#jumbotron').show()
 }
 
 const filloutWorkoutFail = function () {
+  $('#update-workout input').val('')
   $('#jumbotron').html('<h4>Did not fill out workout information</h4>')
   $('#jumbotron').show()
 }
