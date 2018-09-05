@@ -79,6 +79,7 @@ const showExercisesFail = function () {
 }
 // Message after creaeting new connection between workout and exercise
 const selectExerciseSuccess = function (data) {
+  $('#jumbotron form.addExerciseToWorkout').val('')
   $('#jumbotron').html('<h4> Exercise added to workout</h4>')
   $('#jumbotron').show()
 }
