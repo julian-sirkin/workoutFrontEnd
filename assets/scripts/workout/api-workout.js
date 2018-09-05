@@ -41,8 +41,8 @@ const newExercise = function (data) {
     url: config.apiUrl + '/exercises',
     method: 'POST',
     headers: {
-      'Authorization': 'Token token=' + store.user.token
-    },
+     'Authorization': 'Token token=' + store.user.token
+},
     data
   })
 }
@@ -54,10 +54,23 @@ const showExercises = function () {
   })
 }
 
+const selectExercise = function (data) {
+  console.log(data, 'getting passed to api')
+  return $.ajax({
+    url: config.apiUrl + '/workoutexercises',
+    method: 'POST',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   newWorkout,
   showWorkouts,
   showWorkout,
   newExercise,
-  showExercises
+  showExercises,
+  selectExercise
 }

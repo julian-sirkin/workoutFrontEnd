@@ -1,9 +1,13 @@
 'use strict'
 const displayWorkouts = require('../templates/show-all-workouts.handlebars')
 const displayOneWorkout = require('../templates/show-one-workout.handlebars')
+const displayExercises = require('../templates/all-exercises-in-dropdown.handlebars')
 const authUI = require('../auth/ui-auth.js')
+const store = require('../store.js')
 
-const logWorkoutSuccess = function () {
+const logWorkoutSuccess = function (data) {
+  store.workout_id = data.workout.id
+  console.log('Data returned from creating workout', data.workout.id)
   alert('Workout logged successfully')
   $('#new-workout').hide()
 }
@@ -14,7 +18,6 @@ const logWorkoutFail = function () {
 
 const showWorkoutsSuccess = function (data) {
   authUI.homeDisplay()
-  console.log('workout information returning from API', data)
   const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
   $('#jumbotron').html(showWorkoutsHtml)
   $('#jumbotron').show()
@@ -54,14 +57,25 @@ const newExerciseFail = function () {
 }
 
 const showExercisesSuccess = function (data) {
-  alert('got all the existing exercises')
-  console.log(data)
+  console.log('data on exercises', data.exercises)
+  //store.exercises = data.exercises
+  const showExercisesHtml = displayExercises({exercises: data.exercises})
+  $('#jumbotron').html(showExercisesHtml)
+  $('#jumbotron').show()
 }
 
 const showExercisesFail = function () {
   alert('Failed to grab exercises')
 }
 
+const selectExerciseSuccess = function (data) {
+  console.log(data, 'information returned from api')
+  alert('linked exercise to workout')
+}
+
+const selectExerciseFail = function () {
+  alert('did not link the two....booo')
+}
 
 module.exports = {
   logWorkoutSuccess,
@@ -75,5 +89,7 @@ module.exports = {
   newExerciseSuccess,
   newExerciseFail,
   showExercisesSuccess,
-  showExercisesFail
+  showExercisesFail,
+  selectExerciseSuccess,
+  selectExerciseFail
 }

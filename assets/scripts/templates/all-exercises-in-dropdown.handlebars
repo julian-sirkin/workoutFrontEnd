@@ -1,0 +1,14 @@
+{{#each exercises as |exercise|}}
+<div class="card col-md-6">
+  <div class="card-body">
+    <h3 class="card-title">{{exercise.name}}</h3>
+    <form class="addExerciseToWorkout" id="{{exercise.id}}">
+      <input type="number" name="workoutexercise[sets]" placeholder="sets">
+      <input type="number" name="workoutexercise[reps]" placeholder="reps">
+      <input type="text" name="workoutexercise[distance]" placeholder="Distance">
+      <input type="text" name="workoutexercise[notes]" placeholder="notes">
+      <button class="btn btn-primary d-block" type="submit">Add Exercise To Workout</button>
+    </form>
+  </div>
+</div>
+{{/each}}
