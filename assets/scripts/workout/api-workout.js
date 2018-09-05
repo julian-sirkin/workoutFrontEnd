@@ -3,7 +3,7 @@ const store = require('../store.js')
 
 const newWorkout = function (data) {
 //  console.log('the address request is going to', config.apiUrl + '/workouts')
-  // console.log('information gettng passed in', data)
+ console.log('information gettng passed in', data)
   return $.ajax({
     url: config.apiUrl + '/workouts',
     method: 'POST',
@@ -66,11 +66,26 @@ const selectExercise = function (data) {
   })
 }
 
+const fillOutWorkout = function (data) {
+  const id = store.workout_id
+  console.log(id, 'id getting passed into url')
+  return $.ajax({
+    url: config.apiUrl + `/workouts/${id}`,
+    method: 'PATCH',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+
 module.exports = {
   newWorkout,
   showWorkouts,
   showWorkout,
   newExercise,
   showExercises,
-  selectExercise
+  selectExercise,
+  fillOutWorkout
 }

@@ -3,13 +3,27 @@ const api = require('./api-workout.js')
 const ui = require('./ui-workout.js')
 const store = require('../store.js')
 
-const onLogWorkout = function (event) {
+// Generates a blank workout so it can have id to attach exercises to it
+// It is then patched with details later on
+const onBlankWorkout = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const user = store.user.id
+  const data = {workout: {
+    user_id: user
+  }}
   data.workout.user_id = store.user.id
   api.newWorkout(data)
     .then(ui.logWorkoutSuccess)
     .catch(ui.logWorkoutFail)
+}
+// Patch the exiting workout
+const onFillOutWorkout = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  data.workout.user_id = store.user.id
+  api.fillOutWorkout(data)
+    .then(ui.filloutWorkoutSuccess)
+    .catch(ui.filloutWorkoutFail)
 }
 
 const onShowWorkouts = function (event) {
@@ -45,9 +59,10 @@ const onCreateExercise = function (event) {
 
 const onShowExercises = function () {
   api.showExercises()
-  .then(ui.showExercisesSuccess)
-  .catch(ui.showExercisesFail)
+    .then(ui.showExercisesSuccess)
+    .catch(ui.showExercisesFail)
 }
+
 const onSelectExercise = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -55,13 +70,14 @@ const onSelectExercise = function (event) {
   data.workoutexercise.exercise_id = event.target.id
   data.workoutexercise.workout_id = store.workout_id
   console.log(data, 'Information to pass to api')
-   api.selectExercise(data)
+  api.selectExercise(data)
     .then(ui.selectExerciseSuccess)
     .catch(ui.selectExerciseFail)
 }
 
 const workoutHandlerController = function () {
-  $('#log-workout').on('submit', onLogWorkout)
+  $('#add-workout').on('click', onBlankWorkout)
+  $('#update-workout').on('submit', onFillOutWorkout)
   $('#show-workouts').on('click', onShowWorkouts)
   $('#show-workout').on('submit', onShowWorkout)
   $('#add-workout').on('click', onNewWorkout)

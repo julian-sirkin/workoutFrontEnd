@@ -9,7 +9,7 @@ const logWorkoutSuccess = function (data) {
   store.workout_id = data.workout.id
   console.log('Data returned from creating workout', data.workout.id)
   alert('Workout logged successfully')
-  $('#new-workout').hide()
+  // $('#new-workout').hide()
 }
 
 const logWorkoutFail = function () {
@@ -76,6 +76,13 @@ const selectExerciseSuccess = function (data) {
 const selectExerciseFail = function () {
   alert('did not link the two....booo')
 }
+const filloutWorkoutSuccess = function () {
+  alert('I have been updated')
+}
+
+const filloutWorkoutFail = function () {
+  alert('failed to fill out the deets')
+}
 
 module.exports = {
   logWorkoutSuccess,
@@ -91,5 +98,7 @@ module.exports = {
   showExercisesSuccess,
   showExercisesFail,
   selectExerciseSuccess,
-  selectExerciseFail
+  selectExerciseFail,
+  filloutWorkoutSuccess,
+  filloutWorkoutFail
 }
