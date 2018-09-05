@@ -68,7 +68,6 @@ const selectExercise = function (data) {
 
 const fillOutWorkout = function (data) {
   const id = store.workout_id
-  console.log(id, 'id getting passed into url')
   return $.ajax({
     url: config.apiUrl + `/workouts/${id}`,
     method: 'PATCH',
@@ -78,7 +77,15 @@ const fillOutWorkout = function (data) {
     data
   })
 }
-
+const deleteWorkout = function (data) {
+  return $.ajax({
+    url: config.apiUrl + `/workouts/${data}`,
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   newWorkout,
@@ -87,5 +94,6 @@ module.exports = {
   newExercise,
   showExercises,
   selectExercise,
-  fillOutWorkout
+  fillOutWorkout,
+  deleteWorkout
 }

@@ -1,6 +1,6 @@
 {{#each workouts as |workout|}}
 
-<div class="card mb-3 col-8 col-sm-6 col-md-4 offset-2 offset-sm-0" id="signup-card">
+<div class="card mb-3 col-8 col-sm-6 col-md-4 offset-2 offset-sm-0">
   <div class="card-body">
     <h3 class="card-title text-center ">
       {{#if workout.completed_on}}
@@ -17,6 +17,9 @@
         Duration: {{workout.duration}} minutes
       </li>
     </ul>
+    <form class="delete-workout" id={{workout.id}}>
+      <a href="#" name="{{workout.id}}">Delete</a>
+    </form>
   </div>
 </div>
 

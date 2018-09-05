@@ -66,13 +66,21 @@ const onShowExercises = function () {
 const onSelectExercise = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(store.workout_id)
+  // console.log(store.workout_id)
   data.workoutexercise.exercise_id = event.target.id
   data.workoutexercise.workout_id = store.workout_id
-  console.log(data, 'Information to pass to api')
+  // console.log(data, 'Information to pass to api')
   api.selectExercise(data)
     .then(ui.selectExerciseSuccess)
     .catch(ui.selectExerciseFail)
+}
+
+const onDeleteWorkout = function (event) {
+  const data = event.target.name
+  console.log(data, 'Getting passed into url')
+  api.deleteWorkout(data)
+    .then(onShowWorkouts)
+    .catch(ui.deleteWorkoutFail)
 }
 
 const workoutHandlerController = function () {
@@ -85,6 +93,7 @@ const workoutHandlerController = function () {
   $('#create-exercise').on('submit', onCreateExercise)
   $('#show-exercises').on('click', onShowExercises)
   $('#jumbotron').on('submit', 'form.addExerciseToWorkout', onSelectExercise)
+  $('#jumbotron').on('click', 'form.delete-workout', onDeleteWorkout)
 }
 module.exports = {
   workoutHandlerController

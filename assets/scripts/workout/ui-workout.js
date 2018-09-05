@@ -96,6 +96,9 @@ const filloutWorkoutFail = function () {
   $('#jumbotron').html('<h4>Did not fill out workout information</h4>')
   $('#jumbotron').show()
 }
+const deleteWorkoutFail = function () {
+  $('#jumbotron').html('Unable to delete workout')
+}
 
 module.exports = {
   logWorkoutSuccess,
@@ -113,5 +116,6 @@ module.exports = {
   selectExerciseSuccess,
   selectExerciseFail,
   filloutWorkoutSuccess,
-  filloutWorkoutFail
+  filloutWorkoutFail,
+  deleteWorkoutFail
 }
