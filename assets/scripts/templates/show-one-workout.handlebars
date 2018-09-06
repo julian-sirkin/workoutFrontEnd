@@ -1,19 +1,30 @@
-<div class="card col-8 col-md-6 offset-2 offset-md-3" id="signup-card">
-  <div class="card-body ">
-    <h3 class="card-title text-center">
-      {{#if workout.completed_on}}
-      Workout From: {{workout.completed_on}}
-      {{else}}
-      Workout
-      {{/if}}
-    </h3>
-    <ul class="list list-unstyled text-center">
-      <li>
-        Workout Type: {{workout.workout_type}}
-      </li>
-      <li>
-        Duration: {{workout.duration}} minutes
-      </li>
-    </ul>
+<div class="card mb-3 col-8 col-lg-5">
+  <div class="card-body container">
+      <h3 class="card-title text-center ">
+        Workout Details:
+      </h3>
+      <table class="container">
+        <tr>
+          <td class="">Date:</td>
+          <td class="">{{workout.completed_on}}</td>
+        </tr>
+        <tr>
+          <td class="">Total time:</td>
+          <td class="">{{workout.duration}}</td>
+        </tr>
+        <tr>
+          <td class="">Focus:</td>
+          <td class="">{{workout.workout_type}}</td>
+        </tr>
+        {{#each workout.exercises as |exercise|}}
+        <tr>
+          <td class="">Exercise:</td>
+          <td class="">{{exercise.name}}</td>
+        </tr>
+        {{/each}}
+      </table class="col-6">
+      <form class="delete-workout" id={{workout.id}}>
+        <a href="#" name="{{workout.id}}">Delete</a>
+      </form>
   </div>
 </div>

@@ -53,7 +53,6 @@ const newWorkout = function () {
 }
 
 const pickWorkout = function (data) {
-  console.log(data.workouts, 'Information getting passed into pick workout')
   authUI.homeDisplay()
   const limitExercises = limitTheExercises({workouts: data.workouts})
   $('#workoutDropdown').html(limitExercises)

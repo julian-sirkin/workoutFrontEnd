@@ -58,7 +58,6 @@ const onShowWorkouts = function (event) {
 // Get one workout
 const onShowWorkout = function (event) {
   const data = event.target.name
-  console.log(data, 'id passing through')
   api.showWorkout(data)
     .then(ui.showWorkoutSuccess)
     .catch(ui.showWorkoutFail)
