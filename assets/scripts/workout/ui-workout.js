@@ -5,11 +5,14 @@ const displayExercises = require('../templates/all-exercises-in-dropdown.handleb
 const showNewExercise = require('../templates/show-new-exercise.handlebars')
 const authUI = require('../auth/ui-auth.js')
 const store = require('../store.js')
+const api = require('./api-workout.js')
+
+
 
 const logWorkoutSuccess = function (data) {
   store.workout_id = data.workout.id
   // console.log('Data returned from creating workout', data.workout.id)
-   // alert('Workout logged successfully')
+  // alert('Workout logged successfully')
   // $('#new-workout').hide()
 }
 
@@ -19,11 +22,13 @@ const logWorkoutFail = function () {
 }
 
 const showWorkoutsSuccess = function (data) {
+  //console.log(data, 'the array of stuff getting passed back')
   authUI.homeDisplay()
   const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
   $('#jumbotron').html(showWorkoutsHtml)
   $('#jumbotron').show()
 }
+
 
 const showWorkoutsFail = function () {
   $('#jumbotron').html('<h4> Cannot display workouts at this time</h4>')
@@ -66,7 +71,7 @@ const newExerciseFail = function () {
 }
 
 const showExercisesSuccess = function (data) {
-  console.log('data on exercises', data.exercises)
+  // console.log('data on exercises', data.exercises)
   // store.exercises = data.exercises
   const showExercisesHtml = displayExercises({exercises: data.exercises})
   $('#jumbotron').html(showExercisesHtml)

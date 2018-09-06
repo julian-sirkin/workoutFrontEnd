@@ -57,12 +57,11 @@ const changePasswordSuccess = function () {
   $('#change-password-card').hide()
   $('#change-password input').val('')
   $('#jumbotron').html('<h4>Password Changed</h4>').show()
-
 }
 
 const changePasswordFail = function () {
-$('#jumbotron').html('<h4>Please try to change your password again</h4>').show()
-$('#change-password input').val('')
+  $('#jumbotron').html('<h4>Please try to change your password again</h4>').show()
+  $('#change-password input').val('')
 }
 
 const onToCreateAccount = function () {
@@ -77,7 +76,6 @@ const onToLogin = function () {
   $('#signup-card, #jumbotron').hide()
   $('#login-card').show()
   $('#jumbotron').empty()
-
 }
 
 const showChangePasswordForm = function () {

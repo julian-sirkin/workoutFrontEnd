@@ -3,6 +3,7 @@ const api = require('./api-workout.js')
 const ui = require('./ui-workout.js')
 const store = require('../store.js')
 
+
 // Generates a blank workout so it can have id to attach exercises to it
 // It is then patched with details later on
 const onBlankWorkout = function (event) {
@@ -26,12 +27,35 @@ const onFillOutWorkout = function (event) {
     .catch(ui.filloutWorkoutFail)
 }
 
-const onShowWorkouts = function (event) {
-  api.showWorkouts()
-    .then(ui.showWorkoutsSuccess)
-    .catch(ui.showWorkoutsSuccessß)
+// Clear out any blank Workouts
+// Loop through, check if blank, if yes, then delete otherwise do nothing
+const deleteBlankWorkouts = function (data) {
+  let somethingDeleted = false
+//  console.log(data.workouts[0].duration)
+  for (var i = 0; i < data.workouts.length; i++) {
+    if (data.workouts[i].workout_type === null && data.workouts[i].duration === null &&
+  data.workouts[i].completed_on === null && data.workouts[i].exercises.length === 0 ) {
+    //  console.log(data.workouts[i])
+      api.deleteWorkout(data.workouts[i].id)
+      somethingDeleted = true
+    }
+  }
+  if (somethingDeleted) {
+    api.showWorkouts()
+      .then(deleteBlankWorkouts)
+      .catch(ui.showWorkoutsFail)
+  } else {
+    ui.showWorkoutsSuccess(data)
+  }
 }
 
+// Get all workouts
+const onShowWorkouts = function (event) {
+  api.showWorkouts()
+    .then(deleteBlankWorkouts)
+    .catch(ui.showWorkoutsSuccessß)
+}
+// Get one workout
 const onShowWorkout = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target).workout
@@ -39,15 +63,15 @@ const onShowWorkout = function (event) {
     .then(ui.showWorkoutSuccess)
     .catch(ui.showWorkoutFail)
 }
-
+// Show new workout card
 const onNewWorkout = function () {
   ui.newWorkout()
 }
-
+// Show card to select one workout
 const onPickWorkout = function () {
   ui.pickWorkout()
 }
-
+// Create an exercise
 const onCreateExercise = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -74,14 +98,15 @@ const onSelectExercise = function (event) {
     .then(ui.selectExerciseSuccess)
     .catch(ui.selectExerciseFail)
 }
-
+// Delete workout and dependent connection
 const onDeleteWorkout = function (event) {
   const data = event.target.name
-  console.log(data, 'Getting passed into url')
+  // console.log(data, 'Getting passed into url')
   api.deleteWorkout(data)
     .then(onShowWorkouts)
     .catch(ui.deleteWorkoutFail)
 }
+
 
 const workoutHandlerController = function () {
   $('#add-workout').on('click', onBlankWorkout)

@@ -6,7 +6,6 @@ const store = require('../store.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('signup is responding')
   const data = getFormFields(event.target)
   store.credentials = data
   api.signUp(data)
@@ -17,7 +16,6 @@ const onSignUp = function (event) {
 const signInAfterSignUp = function () {
   delete store.credentials.password_confirmation
   const credentials = store.credentials
-  console.log(credentials, 'what is passing into login')
   api.logIn(credentials)
     .then(ui.logInSuccess)
     .catch(ui.logInFail)
@@ -37,9 +35,7 @@ const onLogOut = function (event) {
 }
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('Changing the password')
   const data = getFormFields(event.target)
-  console.log('Change Password information', data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFail)
@@ -53,7 +49,6 @@ const onToLogin = function () {
   ui.onToLogin()
 }
 const onShowChangePasswordForm = function () {
-  console.log('I have been clicked')
   ui.showChangePasswordForm()
 }
 
@@ -63,13 +58,13 @@ const onKeepOldPassword = function () {
 }
 
 const authHandlerController = function () {
-  $('#signup-card').on('submit', onSignUp),
-  $('#login').on('submit', onSignIn),
-  $('#log-out').on('click', onLogOut),
-  $('#change-password').on('submit', onChangePassword),
-  $('#to-create-account').on('click', onToCreateAccount),
-  $('#to-login').on('click', onToLogin),
-  $('#show-change-password').on('click', onShowChangePasswordForm),
+  $('#signup-card').on('submit', onSignUp)
+  $('#login').on('submit', onSignIn)
+  $('#log-out').on('click', onLogOut)
+  $('#change-password').on('submit', onChangePassword)
+  $('#to-create-account').on('click', onToCreateAccount)
+  $('#to-login').on('click', onToLogin)
+  $('#show-change-password').on('click', onShowChangePasswordForm)
   $('#keep-old-password').on('click', onKeepOldPassword)
 }
 
