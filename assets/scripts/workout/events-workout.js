@@ -57,8 +57,8 @@ const onShowWorkouts = function (event) {
 }
 // Get one workout
 const onShowWorkout = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target).workout
+  const data = event.target.name
+  console.log(data, 'id passing through')
   api.showWorkout(data)
     .then(ui.showWorkoutSuccess)
     .catch(ui.showWorkoutFail)
@@ -68,8 +68,11 @@ const onNewWorkout = function () {
   ui.newWorkout()
 }
 // Show card to select one workout
-const onPickWorkout = function () {
-  ui.pickWorkout()
+// Use show exercises to get ids to give selection
+const onPickWorkout = function (data) {
+    api.showWorkouts()
+      .then(ui.pickWorkout)
+      .catch()
 }
 // Create an exercise
 const onCreateExercise = function (event) {
@@ -119,6 +122,7 @@ const workoutHandlerController = function () {
   $('#show-exercises').on('click', onShowExercises)
   $('#jumbotron').on('submit', 'form.addExerciseToWorkout', onSelectExercise)
   $('#jumbotron').on('click', 'form.delete-workout', onDeleteWorkout)
+  $('#workoutDropdown').on('click', 'a.dropdown-item', onShowWorkout)
 }
 module.exports = {
   workoutHandlerController

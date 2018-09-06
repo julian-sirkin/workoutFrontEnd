@@ -6,7 +6,7 @@ const showNewExercise = require('../templates/show-new-exercise.handlebars')
 const authUI = require('../auth/ui-auth.js')
 const store = require('../store.js')
 const api = require('./api-workout.js')
-
+const limitTheExercises = require('../templates/limitExercises.handlebars')
 
 
 const logWorkoutSuccess = function (data) {
@@ -52,8 +52,11 @@ const newWorkout = function () {
   $('#new-workout').show()
 }
 
-const pickWorkout = function () {
+const pickWorkout = function (data) {
+  console.log(data.workouts, 'Information getting passed into pick workout')
   authUI.homeDisplay()
+  const limitExercises = limitTheExercises({workouts: data.workouts})
+  $('#workoutDropdown').html(limitExercises)
   $('#see-one-workout').show()
 }
 

@@ -113,10 +113,15 @@
                   <h3 class="card-title">
                     See a workout
                   </h3>
-                  <form id="show-workout" class="text-center">
-                    <input type="number" name="workout" placeholder="workout">
-                    <button class="btn btn-danger" type="submit">See Details</button>
-                  </form>
+                  <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Pick Workout
+                    </a>
+
+
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="workoutDropdown">
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
