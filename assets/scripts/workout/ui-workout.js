@@ -23,13 +23,17 @@ const logWorkoutFail = function () {
 }
 
 const showWorkoutsSuccess = function (data) {
-  //console.log(data, 'the array of stuff getting passed back')
+  // console.log(data, 'the array of stuff getting passed back')
   authUI.homeDisplay()
-  const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
-  $('#jumbotron').html(showWorkoutsHtml)
-  $('#jumbotron').show()
+  if (data.workouts.length === 0) {
+    $('#jumbotron').html('<h4>No workouts to show</h4>')
+    $('#jumbotron').show()
+  } else {
+    const showWorkoutsHtml = displayWorkouts({workouts: data.workouts})
+    $('#jumbotron').html(showWorkoutsHtml)
+    $('#jumbotron').show()
+  }
 }
-
 
 const showWorkoutsFail = function () {
   $('#jumbotron').html('<h4> Cannot display workouts at this time</h4>')
@@ -37,10 +41,15 @@ const showWorkoutsFail = function () {
 }
 
 const showWorkoutSuccess = function (data) {
-  const showOneWorkout = displayOneWorkout(data)
-  $('#jumbotron').html(showOneWorkout)
-  $('#jumbotron').show()
-  $('#show-workout input').val('')
+  if (data.workouts.length === 0) {
+    $('#jumbotron').html('<h4>No workouts to show</h4>')
+    $('#jumbotron').show()
+  } else {
+    const showOneWorkout = displayOneWorkout(data)
+    $('#jumbotron').html(showOneWorkout)
+    $('#jumbotron').show()
+    $('#show-workout input').val('')
+  }
 }
 
 const showWorkoutFail = function () {
