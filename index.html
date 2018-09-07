@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Workout Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <div class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+         <div class="container">
+            <a href="#" class="navbar-brand"></a>
+            <ul class="navbar-nav" id="workout-options">
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="add-workout">Add Workout</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="show-workouts">See All Workouts</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="pick-workout">See one Workout</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="display-make-new-exercise">Create exercise</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="card col col-md-4 offset-md-4" id="login-card">
+            <div class="card-body">
+              <h3 class="card-title text-center">
+                Login
+              </h3>
+                <form class="form" id="login">
+                  <fieldset>
+                    <input class="d-block " type="email" name="credentials[email]" placeholder="email">
+                    <input class="d-block" type="password" name="credentials[password]" placeholder="password">
+                    <button class="btn btn-primary d-block text-center" id="login-btn" type="submit">Login</button>
+                    <a href="#" id="to-create-account" class="d-block">Create Account</a>
+                  </fieldset>
+                </form>
+            </div>
+          </div>
+          <div class="card col-md-4 offset-md-4" id="signup-card">
+            <div class="card-body">
+              <h3 class="card-title">
+                Sign UP
+              </h3>
+              <form>
+                <input class="d-block" type="email" name="credentials[email]" placeholder="email">
+                <input class="d-block" type="password" name="credentials[password]" placeholder="password">
+                <input class="d-block" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <button class="btn btn-success d-block" id="create-acct-btn" type="submit">Create Account</button>
+                <a href="#" class="d-block" id="to-login">Already Have an Account </a>
+              </form>
+            </div>
+          </div>
+          <div class="card col-md-4 offset-md-4" id="change-password-card">
+            <div class="card-body">
+              <h3 class="card-title">
+                Change Password
+              </h3>
+              <form id="change-password">
+                <input type="password" name="passwords[old]" placeholder="Old password">
+                <input type="password" name="passwords[new]" placeholder="New Password">
+                <button class="btn btn-success"  type="submit">Change Password</button>
+                <a href="#" id="keep-old-password">Keep Old Password </a>
+              </form>
+            </div>
+          </div>
+          <div class="card col-md-4 offset-md-4" id="new-workout">
+            <div class="card-body">
+                <h3 class="card-title">
+                  Log Workout
+                </h3>
+                <form id="update-workout">
+                  <fieldset>
+                    <input type="text" name="workout[workout_type]" placeholder="Workout Type">
+                    <input type="date" name="workout[completed_on]" placeholder="Day Complted">
+                    <input type="number" name="workout[duration]" placeholder="Time in minutes">
+                    <button class="btn btn-primary" id="log-workout-btn" type="submit">Log workout</button>
+                  </fieldset>
+                </form>
+                  <button type="button" id="show-exercises">Add exercise to Workout</button>
+              </div>
+            </div>
+            <div class="card col-md-4 offset-md-4" id="new-exercise">
+              <div class="card-body">
+                  <h3 class="card-title">
+                    New Exercise
+                  </h3>
+                  <form id="create-exercise">
+                    <fieldset>
+                      <input type="text" class="d-block" name="exercise[name]" placeholder="Name">
+                      <input type="text" class="d-block" name="exercise[exercise_type" placeholder="Exercise Type">
+                      <input type="number" class="d-block" name="exercise[duration]" placeholder="Time in minutes">
+                      <input type="text" class="d-block" name="exercise[description]" placeholder="Exercise Description">
+                      <button class="btn btn-primary d-block" id="create-exercise-btn" type="submit">Create Exercise</button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            <div class="card col-md-4 offset-md-4" id="see-one-workout">
+              <div class="card-body">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    See a workout
+                  </h3>
+                  <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Pick Workout
+                    </a>
+
+
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="workoutDropdown">
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="jumbotron my-3 row" id="jumbotron">
+          </div>
+        </div>
+        <div class="navbar navbar-expand fixed-bottom">
+         <div class="container">
+           <div class="navbar-brand"></div>
+            <ul class="navbar-nav text-right" id="acct-options">
+              <li class="nav-item" id="log-out">
+                <a href="#" id="logout-btn" class="nav-link">Log Out</a>
+              </li>
+              <li class="nav-item" id="show-change-password">
+                 <a href="#" class="nav-link">Change Password</a>
+              </li>
+              <li class="nav-item"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
