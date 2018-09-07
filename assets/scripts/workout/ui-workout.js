@@ -10,6 +10,7 @@ const limitTheExercises = require('../templates/limitExercises.handlebars')
 
 
 const logWorkoutSuccess = function (data) {
+  $('#update-workout input').val('')
   store.workout_id = data.workout.id
   // console.log('Data returned from creating workout', data.workout.id)
   // alert('Workout logged successfully')
