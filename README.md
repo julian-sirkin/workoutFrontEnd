@@ -1,5 +1,8 @@
 This is an app designed to help keep track of workouts. The front end interacts with an API that I built that can be found https://git.heroku.com/workoutapi.git
+Front end repo -- https://github.com/julian-sirkin/workoutFrontEnd
+back end repo -- https://github.com/julian-sirkin/workoutAPI
 The front end can be found deployed at https://julian-sirkin.github.io/workoutFrontEnd/
+Basic planning can be found here https://git.generalassemb.ly/ga-wdi-boston/full-stack-project/issues/1757
 
 This contains the front end for token authenticaton, which this then uses to authenticate all actions when interacting with the API.
 
@@ -32,3 +35,9 @@ I'm fairly happy with most of the functionality, however there is a lot I want t
  5. Create the relationship in the API
  6. Tear apart certain parts of the front end to get it to work with the new relationship
 These are broad steps, so the focus for a large period of time would be on one area. However, these were large steps, and the page was deployed after each step, and useable at that time, so if I wasn't ever able to complete the next step, I would always have something to present that hit standards at the deadline.
+
+
+
+Problem Solving proccess:
+When I had problems, I would try to work it out myself. If I had difficulties, I would ask for adivce from somebody, usually by starting with going over the code with them, then progressing to going to google, and stack overflow.
+The biggest problem I had was making sure I had created a workout, so I could add exercises to it. This was more a planning proccess. I came up with something clever, but I could have avoided it by making different ux decisions.
